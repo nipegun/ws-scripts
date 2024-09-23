@@ -8,7 +8,7 @@
 #
 # Ejecución remota:
 #   Invoke-Expression (Invoke-WebRequest -Uri "https://raw.githubusercontent.com/nipegun/ws-scripts/main/ControladorDeDominio-Instalar.ps1" -UseBasicParsing).Content
-#   Invoke-WebRequest -Uri "https://raw.githubusercontent.com/nipegun/ws-scripts/main/ControladorDeDominio-Instalar.ps1" -OutFile c:\Windows\Temp\Script.ps1 -UseBasicParsing -Encoding utf8 ; $tempScriptPath -FQDN "mi.dominio.com"
+#   Invoke-WebRequest -Uri "https://raw.githubusercontent.com/nipegun/ws-scripts/main/ControladorDeDominio-Instalar.ps1" -OutFile c:\Windows\Temp\Script.ps1 -UseBasicParsing -Encoding utf8 ; c:\Windows\Temp\Script.ps1 -FQDN "mi.dominio.com"
 # ----------
 
 param (
