@@ -32,7 +32,7 @@ if ($selection -ge 0 -and $selection -lt $interfaces.Count) {
     $selectedInterface = $interfaces[$selection]
     Write-Host "Ha seleccionado la interfaz: $($selectedInterface.Name) con alias $($selectedInterface.InterfaceAlias)"
     $ipv4Address = Get-NetIPAddress -InterfaceAlias $selectedInterface.InterfaceAlias -AddressFamily IPv4
-
+    # Comprobar que la interfaz no tenga IP asignada por DHCP
     foreach ($ip in $ipv4Address) {
         if ($ip.PrefixOrigin -eq 'Dhcp') {
             Write-Host "\n    La interfaz '$($selectedInterface.InterfaceAlias)' tiene la IP '$($ip.IPAddress)' asignada por DHCP."
