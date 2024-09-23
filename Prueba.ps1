@@ -7,7 +7,7 @@
 # Script de NiPeGun para instalar el controlador de dominio en Windows Server
 #
 # Ejecución remota:
-#   Invoke-Expression (Invoke-WebRequest -Uri "https://raw.githubusercontent.com/nipegun/ws-scripts/refs/heads/main/ControladorDeDominio-Instalar.ps1" -UseBasicParsing).Content
+#   Invoke-Expression (Invoke-WebRequest -Uri "https://raw.githubusercontent.com/nipegun/ws-scripts/refs/heads/main/Prueba.ps1" -UseBasicParsing).Content
 # ----------
 
 $interfaces = Get-NetIPConfiguration
