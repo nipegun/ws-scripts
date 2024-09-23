@@ -19,3 +19,26 @@ param (
 )
 
 Write-Host "Se va a proceder a instalar el controplador de dominio para el dominio $vDominio.$vExtens"
+
+
+# Determinar si la IP asignada a la interfaz es fija o es por DHCP
+Write-Host "    Comprobando que el servidor tenga asignada una IP fija..."
+foreach ($vInteraz in $interfaces) {
+  Write-Host "      Interfaz: $($vInterfaz.InterfaceAlias)"
+  # Determinar si está usando DHCP para IPv4
+  if ($vInterfaz.DhcpEnabled) {
+    Write-Host "    El servidor tiene dirección IP por DHCP. Configura una IP fija y vuelve a ejecutar el script."
+  } else {
+    Write-Host "    La dirección asignada al servidor es fija. Se procederá con la instalación del controlador de dominio."
+  }
+    
+  # Determinar si está usando DHCP para IPv6 (si aplica)
+  #if ($interface.IPv6DhcpEnabled) {
+  #  Write-Host "  IPv6: DHCP está habilitado."
+  #} else {
+  #  Write-Host "  IPv6: Dirección IP fija."
+  #}
+
+  Write-Host "-------------------------------------"
+
+}
