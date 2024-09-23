@@ -35,7 +35,8 @@ if ($selection -ge 0 -and $selection -lt $interfaces.Count) {
 
     foreach ($ip in $ipv4Address) {
         if ($ip.PrefixOrigin -eq 'Dhcp') {
-            Write-Host "La interfaz '$($selectedInterface.InterfaceAlias)' tiene la IP '$($ip.IPAddress)' asignada por DHCP."
+            Write-Host "\n    La interfaz '$($selectedInterface.InterfaceAlias)' tiene la IP '$($ip.IPAddress)' asignada por DHCP."
+            Write-Host "    Asigna una IP fija a la interfaz y vuelve a ejecutar el script."
         } else {
             Write-Host "La interfaz '$($selectedInterface.InterfaceAlias)' tiene la IP '$($ip.IPAddress)' asignada de forma manual."
         }
