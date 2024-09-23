@@ -3,8 +3,12 @@
 # Si se te llena la boca hablando de libertad entonces hazlo realmente libre.
 # No tienes que aceptar ningún tipo de términos de uso o licencia para utilizarlo o modificarlo porque va sin CopyLeft.
 
-
-Invoke-Expression (Invoke-WebRequest -Uri "https://example.com/script.ps1" -UseBasicParsing).Content
+# ----------
+# Script de NiPeGun para instalar el controlador de dominio en Windows Server
+#
+# Ejecución remota:
+#   Invoke-Expression (Invoke-WebRequest -Uri "https://raw.githubusercontent.com/nipegun/ws-scripts/refs/heads/main/ControladorDeDominio-Instalar.ps1" -UseBasicParsing).Content
+# ----------
 
 param (
   [Parameter(Mandatory=$true)]
