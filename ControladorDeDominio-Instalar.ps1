@@ -23,34 +23,16 @@ Write-Host "Se va a proceder a instalar el controlador de dominio para el domini
 
 $vInterfacesDeRed = Get-NetIPConfiguration
 
-# Determinar si la IP asignada a la interfaz es fija o es por DHCP
-Write-Host "    Comprobando que el servidor tenga asignada una IP fija..."
 foreach ($vInterfaz in $vInterfacesDeRed) {
-  Write-Host "      Interfaz: $($vInterfaz.vInterfacesDeRed)"
-  Get-NetAdapter -Name $vInterfaz.InterfaceAlias
-    if ($vAdaptador.Status -eq 'Up') {
-        if ($vInterfaz.DhcpEnabled) {
-            Write-Host "La interfaz '$($vInterfaz.InterfaceAlias)' tiene la IP asignada por DHCP."
+    # Obtener la dirección IPv4 de la interfaz
+    $ipv4Address = Get-NetIPAddress -InterfaceAlias $vInterfaz.InterfaceAlias -AddressFamily IPv4
+
+    foreach ($ip in $ipv4Address) {
+        if ($ip.PrefixOrigin -eq 'Dhcp') {
+            Write-Host "La interfaz '$($interface.InterfaceAlias)' tiene la IP '$($ip.IPAddress)' asignada por DHCP."
         } else {
-            Write-Host "La interfaz '$($vInterfaz.InterfaceAlias)' tiene la IP asignada de forma manual."
+            Write-Host "La interfaz '$($interface.InterfaceAlias)' tiene la IP '$($ip.IPAddress)' asignada de forma manual."
         }
     }
-  # Determinar si está usando DHCP para IPv4
-  if ($vInterfaz.DhcpEnabled) {
-    Write-Host "    El servidor tiene dirección IP por DHCP. Configura una IP fija y vuelve a ejecutar el script."
-  } else {
-    Write-Host "    La dirección asignada al servidor es fija. Se procederá con la instalación del controlador de dominio."
-
-    
-  }
-    
-  # Determinar si está usando DHCP para IPv6 (si aplica)
-  #if ($interface.IPv6DhcpEnabled) {
-  #  Write-Host "  IPv6: DHCP está habilitado."
-  #} else {
-  #  Write-Host "  IPv6: Dirección IP fija."
-  #}
-
-  Write-Host "-------------------------------------"
-
 }
+
