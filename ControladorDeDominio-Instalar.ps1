@@ -18,7 +18,7 @@ param (
   [int]$vIP
 )
 
-Write-Host "Se va a proceder a instalar el controplador de dominio para el dominio $vDominio.$vExtens"
+Write-Host "Se va a proceder a instalar el controlador de dominio para el dominio $vDominio.$vExtens"
 
 $vInterfacesDeRed = Get-NetIPConfiguration
 
@@ -31,6 +31,8 @@ foreach ($vInterfaz in $vInterfacesDeRed) {
     Write-Host "    El servidor tiene dirección IP por DHCP. Configura una IP fija y vuelve a ejecutar el script."
   } else {
     Write-Host "    La dirección asignada al servidor es fija. Se procederá con la instalación del controlador de dominio."
+
+    
   }
     
   # Determinar si está usando DHCP para IPv6 (si aplica)
