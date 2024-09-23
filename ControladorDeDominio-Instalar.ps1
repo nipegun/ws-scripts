@@ -11,11 +11,8 @@
 # ----------
 
 param (
-  #[Parameter(Mandatory=$true)]
-  [string]$vDominio
-  [string]$vExtens
-  [string]$FQDN
-  [int]$vIP
+    [string]$Parametro1,
+    [string]$Parametro2
 )
 
 Write-Host "Se va a proceder a instalar el controlador de dominio para el dominio $vDominio.$vExtens"
