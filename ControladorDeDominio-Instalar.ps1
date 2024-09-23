@@ -18,18 +18,33 @@ param (
 Write-Host "  Iniciando el script de instalación del controlador de dominio de Windows Server."
 Write-Host "    Se procederá con el dominio $FQDN"
 
-$vInterfacesDeRed = Get-NetIPConfiguration
+# Obtener todas las interfaces de red disponibles
+$interfaces = Get-NetAdapter | Where-Object { $_.Status -eq 'Up' }
 
-foreach ($vInterfaz in $vInterfacesDeRed) {
-    # Obtener la dirección IPv4 de la interfaz
-    $ipv4Address = Get-NetIPAddress -InterfaceAlias $vInterfaz.InterfaceAlias -AddressFamily IPv4
+# Mostrar las interfaces y permitir al usuario elegir una
+Write-Host "Seleccione la interfaz de red que desea utilizar:"
+
+for ($i = 0; $i -lt $interfaces.Count; $i++) {
+    Write-Host "[$i] $($interfaces[$i].Name)"
+}
+
+# Obtener la elección del usuario
+$selection = Read-Host "Ingrese el número correspondiente a la interfaz"
+
+# Validar la selección
+if ($selection -ge 0 -and $selection -lt $interfaces.Count) {
+    $selectedInterface = $interfaces[$selection]
+    Write-Host "Ha seleccionado la interfaz: $($selectedInterface.Name) con alias $($selectedInterface.InterfaceAlias)"
+    $ipv4Address = Get-NetIPAddress -InterfaceAlias $selectedInterface.InterfaceAlias -AddressFamily IPv4
 
     foreach ($ip in $ipv4Address) {
         if ($ip.PrefixOrigin -eq 'Dhcp') {
-            Write-Host "La interfaz '$($interface.InterfaceAlias)' tiene la IP '$($ip.IPAddress)' asignada por DHCP."
+            Write-Host "La interfaz '$($selectedInterface.InterfaceAlias)' tiene la IP '$($ip.IPAddress)' asignada por DHCP."
         } else {
-            Write-Host "La interfaz '$($interface.InterfaceAlias)' tiene la IP '$($ip.IPAddress)' asignada de forma manual."
+            Write-Host "La interfaz '$($selectedInterface.InterfaceAlias)' tiene la IP '$($ip.IPAddress)' asignada de forma manual."
         }
     }
+} else {
+    Write-Host "Selección no válida. Por favor, ejecute el script nuevamente e ingrese un número válido."
 }
 
