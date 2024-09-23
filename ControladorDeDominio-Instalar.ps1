@@ -13,7 +13,7 @@
 param (
   [Parameter(Mandatory=$true)]
   [string]$vDominio
-  [string]$vExtens
+  [string]$vExtens,
 
   [int]$vIP
 )
