@@ -38,7 +38,8 @@ if ($selection -ge 0 -and $selection -lt $interfaces.Count) {
             Write-Host "\n    La interfaz '$($selectedInterface.InterfaceAlias)' tiene la IP '$($ip.IPAddress)' asignada por DHCP."
             Write-Host "    Asigna una IP fija a la interfaz y vuelve a ejecutar el script."
         } else {
-            Write-Host "La interfaz '$($selectedInterface.InterfaceAlias)' tiene la IP '$($ip.IPAddress)' asignada de forma manual."
+            # Ascender el servidor a controlador de dominio.
+            
         }
     }
 } else {
