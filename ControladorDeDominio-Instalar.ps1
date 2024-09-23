@@ -14,6 +14,7 @@ param (
   #[Parameter(Mandatory=$true)]
   [string]$vDominio,
   [string]$vExtens,
+  [string]$FQDN,
   [int]$vIP
 )
 
