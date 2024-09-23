@@ -15,7 +15,8 @@ param (
     [string]$FQDN
 )
 
-Write-Host "Se va a proceder a instalar el controlador de dominio para el dominio $FQDN"
+Write-Host "  Iniciando el script de instalación del controlador de dominio de Windows Server."
+write-host "    Se procederá con el dominio $FQDN"
 
 $vInterfacesDeRed = Get-NetIPConfiguration
 
