@@ -27,6 +27,14 @@ $vInterfacesDeRed = Get-NetIPConfiguration
 Write-Host "    Comprobando que el servidor tenga asignada una IP fija..."
 foreach ($vInterfaz in $vInterfacesDeRed) {
   Write-Host "      Interfaz: $($vInterfaz.vInterfacesDeRed)"
+  Get-NetAdapter -Name $vInterfaz.InterfaceAlias
+    if ($vAdaptador.Status -eq 'Up') {
+        if ($vInterfaz.DhcpEnabled) {
+            Write-Host "La interfaz '$($vInterfaz.InterfaceAlias)' tiene la IP asignada por DHCP."
+        } else {
+            Write-Host "La interfaz '$($vInterfaz.InterfaceAlias)' tiene la IP asignada de forma manual."
+        }
+    }
   # Determinar si está usando DHCP para IPv4
   if ($vInterfaz.DhcpEnabled) {
     Write-Host "    El servidor tiene dirección IP por DHCP. Configura una IP fija y vuelve a ejecutar el script."
