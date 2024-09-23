@@ -15,21 +15,17 @@ param (
     [string]$FQDN
 )
 
-Write-Host "  Iniciando el script de instalación del controlador de dominio de Windows Server."
-Write-Host "    Se procederá con el dominio $FQDN"
+Write-Host "\n  Iniciando el script de instalación del controlador de dominio de Windows Server."
+Write-Host "    Se procederá con el dominio $FQDN \n"
 
 # Obtener todas las interfaces de red disponibles
 $interfaces = Get-NetAdapter | Where-Object { $_.Status -eq 'Up' }
-
-# Mostrar las interfaces y permitir al usuario elegir una
-Write-Host "Seleccione la interfaz de red que desea utilizar:"
-
 for ($i = 0; $i -lt $interfaces.Count; $i++) {
     Write-Host "[$i] $($interfaces[$i].Name)"
 }
 
 # Obtener la elección del usuario
-$selection = Read-Host "Ingrese el número correspondiente a la interfaz"
+$selection = Read-Host "Ingrese el número correspondiente a la interfaz y presione Enter:"
 
 # Validar la selección
 if ($selection -ge 0 -and $selection -lt $interfaces.Count) {
