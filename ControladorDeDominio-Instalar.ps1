@@ -11,11 +11,9 @@
 # ----------
 
 param (
-  [Parameter(Mandatory=$true)]
+  #[Parameter(Mandatory=$true)]
   [string]$vDominio,
-  [Parameter(Mandatory=$true)]
   [string]$vExtens,
-
   [int]$vIP
 )
 
