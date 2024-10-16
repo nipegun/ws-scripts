@@ -81,12 +81,12 @@
           Write-Host ''
           Write-Host '  Modificando políticas de Cambio de directivas: '
           Write-Host ''
-          AuditPol /set /subcategory:"Cambio de directiva de auditoría"                 /success:enable  /failure:enable
-          AuditPol /set /subcategory:"Cambio de directiva de autenticación"             /success:enable  /failure:enable
-          AuditPol /set /subcategory:"Cambio de directiva de autorización"              /success:enable  /failure:enable
-          AuditPol /set /subcategory:"Cambio de directiva de plataforma de filtrado"    /success:enable  /failure:disable
-          AuditPol /set /subcategory:"Cambio de directiva de nivel de reglas de MPSSVC" /success:disable /failure:disable
-          AuditPol /set /subcategory:"Otros eventos de cambios de directiva"            /success:disable /failure:disable
+          AuditPol /set /subcategory:"Cambio en la directiva de auditoría"                 /success:enable  /failure:enable
+          AuditPol /set /subcategory:"Cambio de la directiva de autenticación"             /success:enable  /failure:enable
+          AuditPol /set /subcategory:"Cambio de la directiva de autorización"              /success:enable  /failure:enable
+          AuditPol /set /subcategory:"Cambio de la directiva de plataforma de filtrado"    /success:enable  /failure:disable
+          AuditPol /set /subcategory:"Cambio de la directiva de nivel de reglas de MPSSVC" /success:disable /failure:disable
+          AuditPol /set /subcategory:"Otros eventos de cambios de directiva"               /success:disable /failure:disable
         # Uso de privilegios
           Write-Host ''
           Write-Host '  Modificando políticas de Uso de privilegios: '
@@ -159,6 +159,4 @@
   AuditPol /get /category:"Sistema"
   Write-Host ''
 
-Set-AdvancedAuditPolicyConfiguration -Policy "AuditPolicy" -Subcategory "Credential Validation" -Success:$true -Failure:$true
-          Set-AdvancedAuditPolicyConfiguration -Policy "AuditPolicy" -Subcategory "Validación de credenciales" -Success:$true -Failure:$true
-          Set-AuditPolicy -Subcategory "Credential Validation" -Success $true -Failure $true
+
