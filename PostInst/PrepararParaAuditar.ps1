@@ -22,12 +22,38 @@
           AuditPol /set /subcategory:"Eventos de RPC"                        /success:enable  /failure:enable
           AuditPol /set /subcategory:"Eventos de ajuste de derecho de token" /success:enable  /failure:disable
         # Acceso DS
-  
+          AuditPol /set /subcategory:"Replicación de servicio de directorio detallada" /success:disable /failure:disable
+          AuditPol /set /subcategory:"Acceso del servicio de directorio"               /success:disable /failure:disable
+          AuditPol /set /subcategory:"Cambios de servicio de directorio"               /success:enable  /failure:enable
+          AuditPol /set /subcategory:"Replicación de servicio de directorio"           /success:disable /failure:disable
         # Inicio y cierre de sesión
-        
+          AuditPol /set /subcategory:"Bloqueo de cuenta"                          /success:enable  /failure:disable
+          AuditPol /set /subcategory:"Notificaciones de usuario o dispositivo"    /success:disable /failure:disable
+          AuditPol /set /subcategory:"Pertenencia a grupos"                       /success:enable  /failure:disable
+          AuditPol /set /subcategory:"Modo extendido de IPSec"                    /success:disable /failure:disable
+          AuditPol /set /subcategory:"Modo principal de IPSec"                    /success:disable /failure:disable
+          AuditPol /set /subcategory:"Modo rápido de IPSec"                       /success:disable /failure:disable
+          AuditPol /set /subcategory:"Cerrar sesión"                              /success:enable  /failure:disable
+          AuditPol /set /subcategory:"Inicio de sesión"                           /success:enable  /failure:enable
+          AuditPol /set /subcategory:"Servidor de directiva de redes"             /success:enable  /failure:enable
+          AuditPol /set /subcategory:"Otros eventos de inicio y cierre de sesión" /success:enable  /failure:enable
+          AuditPol /set /subcategory:"Inicio de sesión especial"                  /success:enable  /failure:enable
         # Acceso a objetos
         
-          AuditPol /set /subcategory:"SAM" /success:enable /failure:enable
+          AuditPol /set /subcategory:"Aplicación generada"                              /success:enable /failure:enable
+          AuditPol /set /subcategory:"Servicios de certificación"                       /success:enable /failure:enable
+          AuditPol /set /subcategory:"Recurso compartido de archivos detallado"         /success:enable /failure:enable
+          AuditPol /set /subcategory:"Recurso compartido de archivos"                   /success:enable /failure:enable
+          AuditPol /set /subcategory:"Sistema de archivos"                              /success:enable /failure:enable
+          AuditPol /set /subcategory:"Conexión de plataforma de filtrado"               /success:enable /failure:enable
+          AuditPol /set /subcategory:"Colocación de paquetes de plataforma de filtrado" /success:enable /failure:enable
+          AuditPol /set /subcategory:"Manipulación de identificadores"                  /success:enable /failure:enable
+          AuditPol /set /subcategory:"Objeto de kernel"                                 /success:enable /failure:enable
+          AuditPol /set /subcategory:"Otros eventos de acceso a objetos"                /success:enable /failure:enable
+          AuditPol /set /subcategory:"Registro"                                         /success:enable /failure:enable
+          AuditPol /set /subcategory:"Almacenamiento extraíble"                         /success:enable /failure:enable
+          AuditPol /set /subcategory:"SAM"                                              /success:enable /failure:enable
+          AuditPol /set /subcategory:"Almacenamiento provisional de directiva central"  /success:enable /failure:enable
         # Cambio de directivas
         
         # Uso de privilegios
