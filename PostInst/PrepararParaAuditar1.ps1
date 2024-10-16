@@ -41,7 +41,7 @@
           AuditPol /set /subcategory:"Modo rápido de IPSec"                       /success:disable /failure:disable
           AuditPol /set /subcategory:"Cerrar sesión"                              /success:enable  /failure:disable
           AuditPol /set /subcategory:"Inicio de sesión"                           /success:enable  /failure:enable
-          AuditPol /set /subcategory:"Servidor de directiva de redes"             /success:enable  /failure:enable
+          AuditPol /set /subcategory:"Servidor de directivas de redes"            /success:enable  /failure:enable
           AuditPol /set /subcategory:"Otros eventos de inicio y cierre de sesión" /success:enable  /failure:enable
           AuditPol /set /subcategory:"Inicio de sesión especial"                  /success:enable  /failure:enable
         # Acceso a objetos
