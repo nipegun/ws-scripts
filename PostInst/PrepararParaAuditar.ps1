@@ -17,7 +17,7 @@
           AuditPol /set /subcategory:"Administración de grupos de seguridad"      /success:enable /failure:enable
           AuditPol /set /subcategory:"Administración de cuentas de usuario"       /success:enable /failure:enable
         # Seguimiento detallado
-          AuditPol /set /subcategory:"Actividad DPAPI"                       /success:disable /failure:diable
+          AuditPol /set /subcategory:"Actividad DPAPI"                       /success:disable /failure:disable
           AuditPol /set /subcategory:"Eventos Plug and Play"                 /success:enable  /failure:disable
           AuditPol /set /subcategory:"Creación del proceso"                  /success:enable  /failure:enable
           AuditPol /set /subcategory:"Finalización del proceso"              /success:enable  /failure:enable
@@ -63,9 +63,9 @@
           AuditPol /set /subcategory:"Cambio de directiva de nivel de reglas de MPSSVC" /success:disable /failure:disable
           AuditPol /set /subcategory:"Otros eventos de cambios de directiva"            /success:disable /failure:disable
         # Uso de privilegios
-          AuditPol /set /subcategory:"Uso de privilegio no confidencial"  /success:disable /failure:disable *
-          AuditPol /set /subcategory:"Otros eventos de uso de privilegio" /success:disable /failure:disable *
-          AuditPol /set /subcategory:"Uso de privilegio confidencial"     /success:disable /failure:disable *
+          AuditPol /set /subcategory:"Uso de privilegio no confidencial"  /success:disable /failure:disable
+          AuditPol /set /subcategory:"Otros eventos de uso de privilegio" /success:disable /failure:disable
+          AuditPol /set /subcategory:"Uso de privilegio confidencial"     /success:enable  /failure:enable
           # Sistema
           AuditPol /set /subcategory:"Controlador IPSec"                  /success:enable  /failure:disable
           AuditPol /set /subcategory:"Otros eventos de sistema"           /success:disable /failure:enable
