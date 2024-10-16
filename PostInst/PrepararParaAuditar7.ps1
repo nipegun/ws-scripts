@@ -126,7 +126,7 @@
   Write-Host ''
   Write-Host '  La categoría "Acceso DS" ha quedado de la siguiente manera: '
   Write-Host ''
-  AuditPol /get /category:"Seguimiento DS"
+  AuditPol /get /category:"Acceso DS"
   Write-Host ''
 
   Write-Host ''
