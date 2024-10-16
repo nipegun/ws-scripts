@@ -3,7 +3,7 @@
 #  Invoke-Expression (Invoke-WebRequest -Uri "https://raw.githubusercontent.com/nipegun/ws-scripts/main/PostInst/PrepararParaAuditar.ps1" -UseBasicParsing).Content
 
 # Imprimir estado de todas las categorías
-  AuditPol /get /category:*
+  #AuditPol /get /category:*
 # secpol.msc
   # Configuración de seguridad
     # Configuración de políticas de auditoría avanzada
@@ -85,7 +85,7 @@
           AuditPol /set /subcategory:"Cambio de la directiva de autenticación"             /success:enable  /failure:enable
           AuditPol /set /subcategory:"Cambio de la directiva de autorización"              /success:enable  /failure:enable
           AuditPol /set /subcategory:"Cambio de la directiva de plataforma de filtrado"    /success:enable  /failure:disable
-          AuditPol /set /subcategory:"Cambio de la directiva de nivel de reglas de MPSSVC" /success:disable /failure:disable
+          AuditPol /set /subcategory:"Cambio de la directiva del nivel de reglas de MPSSVC" /success:disable /failure:disable
           AuditPol /set /subcategory:"Otros eventos de cambios de directiva"               /success:disable /failure:disable
         # Uso de privilegios
           Write-Host ''
