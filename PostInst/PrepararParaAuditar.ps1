@@ -1,6 +1,6 @@
 
 # Ejecución remota:
-#  Invoke-Expression (Invoke-WebRequest -Uri "https://raw.githubusercontent.com/usuario/repositorio/ruta/al/script.ps1" -UseBasicParsing).Content
+#  Invoke-Expression (Invoke-WebRequest -Uri "https://raw.githubusercontent.com/nipegun/ws-scripts/main/PostInst/PrepararParaAuditar.ps1" -UseBasicParsing).Content
 
 # Imprimir estado de todas las categorías
   AuditPol /get /category:*
