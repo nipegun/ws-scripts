@@ -8,7 +8,7 @@
 # Script de NiPeGun para establecer las políticas por defecto para auditar el servidor con Splunk
 #
 # Ejecución remota:
-#  Invoke-Expression (Invoke-WebRequest -Uri "https://raw.githubusercontent.com/nipegun/ws-scripts/main/PostInst/PrepararParaAuditar.ps1" -UseBasicParsing).Content
+#  Invoke-Expression (Invoke-WebRequest -Uri "https://raw.githubusercontent.com/nipegun/ws-scripts/main/PostInst/CrearPoliticasParaAuditarConSplunk.ps1" -UseBasicParsing).Content
 #
 # Al modificar las políticas locales con auditpol se estará cambiando la configuración efectiva en el sistema,
 # pero estos cambios no se reflejarán en la ventana de Directiva de Seguridad Local (secpol.msc).
@@ -175,9 +175,12 @@
   AuditPol /get /category:"Sistema"
   Write-Host ''
 
-  Write-Host '----------------------------------------------------------------------------'
-  Write-Host '  Generando un archivo para poder importar sobre la GPO de modo gráfico...'
-  Write-Host '----------------------------------------------------------------------------'
+  Write-Host '--------------------------------------------------------------------------------'
+  Write-Host '  Generando un archivo CSV para poder importar sobre la GPO de modo gráfico...'
+  Write-Host '--------------------------------------------------------------------------------'
   auditpol /backup /file:c:\Users\Administrador\Desktop\PolAudPorDefecto.csv
   Write-Host ''
- 
+  Write-Host '  El archivo CSV ha sido guardado en el escritorio.'
+  Write-Host '    Para que las políticas de auditoría sean permanentes hay que importar el CSV desde secpol.msc'
+  Write-Host''
+
