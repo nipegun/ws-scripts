@@ -170,6 +170,6 @@
   Write-Host '----------------------------------------------------------------------------'
   Write-Host '  Generando un archivo para poder importar sobre la GPO de modo gráfico...'
   Write-Host '----------------------------------------------------------------------------'
-  auditpol /backup /file:c:\Users\Administrador\Desktop\PolParaImportar.txt
+  auditpol /backup /file:c:\Users\Administrador\Desktop\PolAudPorDefecto.csv
   Write-Host ''
  
