@@ -5,8 +5,10 @@
     # Configuración de políticas de auditoría avanzada
       # Directivas de auditoría del sistema
         # Inicio de sesión de cuentas (Categoría: "Inicio de sesión de la cuenta")
-          AuditPol /set /subcategory:"Validación de credenciales" /success:enable /failure:enable
-
+          AuditPol /set /subcategory:"Validación de credenciales"                   /success:enable  /failure:enable
+          AuditPol /set /subcategory:"Servicio de autenticación Kerberos"           /success:disable /failure:disable
+          AuditPol /set /subcategory:"Operaciones de vales de servicio Kerberos"    /success:disable /failure:disable
+          AuditPol /set /subcategory:"Otros eventos de inicio de sesión de cuentas" /success:enable  /failure:enable
         # Administración de cuentas
           AuditPol /set /subcategory:"Administración de grupos de aplicaciones"   /success:enable /failure:enable
           AuditPol /set /subcategory:"Administración de cuentas de equipo"        /success:enable /failure:enable
@@ -39,31 +41,43 @@
           AuditPol /set /subcategory:"Otros eventos de inicio y cierre de sesión" /success:enable  /failure:enable
           AuditPol /set /subcategory:"Inicio de sesión especial"                  /success:enable  /failure:enable
         # Acceso a objetos
-        
-          AuditPol /set /subcategory:"Aplicación generada"                              /success:enable /failure:enable
-          AuditPol /set /subcategory:"Servicios de certificación"                       /success:enable /failure:enable
-          AuditPol /set /subcategory:"Recurso compartido de archivos detallado"         /success:enable /failure:enable
-          AuditPol /set /subcategory:"Recurso compartido de archivos"                   /success:enable /failure:enable
-          AuditPol /set /subcategory:"Sistema de archivos"                              /success:enable /failure:enable
-          AuditPol /set /subcategory:"Conexión de plataforma de filtrado"               /success:enable /failure:enable
-          AuditPol /set /subcategory:"Colocación de paquetes de plataforma de filtrado" /success:enable /failure:enable
-          AuditPol /set /subcategory:"Manipulación de identificadores"                  /success:enable /failure:enable
-          AuditPol /set /subcategory:"Objeto de kernel"                                 /success:enable /failure:enable
-          AuditPol /set /subcategory:"Otros eventos de acceso a objetos"                /success:enable /failure:enable
-          AuditPol /set /subcategory:"Registro"                                         /success:enable /failure:enable
-          AuditPol /set /subcategory:"Almacenamiento extraíble"                         /success:enable /failure:enable
-          AuditPol /set /subcategory:"SAM"                                              /success:enable /failure:enable
-          AuditPol /set /subcategory:"Almacenamiento provisional de directiva central"  /success:enable /failure:enable
+          AuditPol /set /subcategory:"Aplicación generada"                              /success:enable  /failure:enable
+          AuditPol /set /subcategory:"Servicios de certificación"                       /success:enable  /failure:enable
+          AuditPol /set /subcategory:"Recurso compartido de archivos detallado"         /success:enable  /failure:disable
+          AuditPol /set /subcategory:"Recurso compartido de archivos"                   /success:enable  /failure:enable
+          AuditPol /set /subcategory:"Sistema de archivos"                              /success:enable  /failure:disable
+          AuditPol /set /subcategory:"Conexión de plataforma de filtrado"               /success:enable  /failure:disable
+          AuditPol /set /subcategory:"Colocación de paquetes de plataforma de filtrado" /success:disable /failure:disable
+          AuditPol /set /subcategory:"Manipulación de identificadores"                  /success:disable /failure:disable
+          AuditPol /set /subcategory:"Objeto de kernel"                                 /success:enable  /failure:enable
+          AuditPol /set /subcategory:"Otros eventos de acceso a objetos"                /success:disable /failure:disable
+          AuditPol /set /subcategory:"Registro"                                         /success:enable  /failure:disable
+          AuditPol /set /subcategory:"Almacenamiento extraíble"                         /success:enable  /failure:enable
+          AuditPol /set /subcategory:"SAM"                                              /success:enable  /failure:disable
+          AuditPol /set /subcategory:"Almacenamiento provisional de directiva central"  /success:disable /failure:disable
         # Cambio de directivas
-        
+          AuditPol /set /subcategory:"Cambio de directiva de auditoría"                 /success:enable  /failure:enable
+          AuditPol /set /subcategory:"Cambio de directiva de autenticación"             /success:enable  /failure:enable
+          AuditPol /set /subcategory:"Cambio de directiva de autorización"              /success:enable  /failure:enable
+          AuditPol /set /subcategory:"Cambio de directiva de plataforma de filtrado"    /success:enable  /failure:disable
+          AuditPol /set /subcategory:"Cambio de directiva de nivel de reglas de MPSSVC" /success:disable /failure:disable
+          AuditPol /set /subcategory:"Otros eventos de cambios de directiva"            /success:disable /failure:disable
         # Uso de privilegios
-        
-        # Sistema
-        
-        # Auditoría de acceso a objetos globalirectivas locales
-        
+          AuditPol /set /subcategory:"Uso de privilegio no confidencial"  /success:disable /failure:disable *
+          AuditPol /set /subcategory:"Otros eventos de uso de privilegio" /success:disable /failure:disable *
+          AuditPol /set /subcategory:"Uso de privilegio confidencial"     /success:disable /failure:disable *
+          # Sistema
+          AuditPol /set /subcategory:"Controlador IPSec"                  /success:enable  /failure:disable
+          AuditPol /set /subcategory:"Otros eventos de sistema"           /success:disable /failure:enable
+          AuditPol /set /subcategory:"Cambio de estado de seguridad"      /success:enable  /failure:enable
+          AuditPol /set /subcategory:"Extensión del sistema de seguridad" /success:enable  /failure:enable
+          AuditPol /set /subcategory:"Integridad del sistema"             /success:enable  /failure:enable
+        # Auditoría de acceso a objetos global
+          AuditPol /set /subcategory:"Sistema de archivos" /success:enable  /failure:enable
+          AuditPol /set /subcategory:"Registro"            /success:enable  /failure:enable
+
 # Para comprobar las categorías configuradas
-AuditPol /get /category:*
+  AuditPol /get /category:*
 
   
 $policies = @(
