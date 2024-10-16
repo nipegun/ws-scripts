@@ -2,6 +2,14 @@
 # Ejecución remota:
 #  Invoke-Expression (Invoke-WebRequest -Uri "https://raw.githubusercontent.com/nipegun/ws-scripts/main/PostInst/PrepararParaAuditar.ps1" -UseBasicParsing).Content
 
+
+# Si se modifican las políticas con auditpol, se estará cambiando la configuración efectiva en el sistema,
+# pero estos cambios no se reflejarán en la ventana de Directiva de Seguridad Local (secpol.msc).
+# Esto se debe a que secpol.msc muestra las configuraciones locales establecidas en las plantillas de seguridad,
+# mientras que auditpol aplica directamente sobre las configuraciones efectivas del sistema.
+
+
+
 # Imprimir estado de todas las categorías
   #AuditPol /get /category:*
 # secpol.msc
