@@ -80,21 +80,6 @@
           AuditPol /set /subcategory:"Sistema de archivos" /success:enable  /failure:enable
           AuditPol /set /subcategory:"Registro"            /success:enable  /failure:enable
 
-# Para comprobar las categorías configuradas
-  AuditPol /get /category:*
-
-  
-$policies = @(
-    @{ Subcategory = "Logon"; Success = "enable"; Failure = "enable" },
-    @{ Subcategory = "Account Lockout"; Success = "enable"; Failure = "enable" },
-    @{ Subcategory = "Process Creation"; Success = "enable"; Failure = "enable" }
-)
-
-# Aplicar las políticas de auditoría
-foreach ($policy in $policies) {
-    AuditPol /set /subcategory:$($policy.Subcategory) /success:$($policy.Success) /failure:$($policy.Failure)
-}
-
 # Visualizar cambioa
   Write-Host ''
   Write-Host '  La categoría "Inicio de sesión de cuentas" ha quedado de la siguiente manera: '
