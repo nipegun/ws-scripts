@@ -10,6 +10,7 @@
         # Acceso DS
         # Inicio y cierre de sesión
         # Acceso a objetos
+          AuditPol /set /subcategory:"SAM" /success:enable /failure:enable
         # Cambio de directivas
         # Uso de privilegios
         # Sistema
@@ -30,7 +31,9 @@ foreach ($policy in $policies) {
 }
 
 # Visualizar cambioa
-  Write-Host '\n  La categoría "Inicio de sesión de la cuenta" ha quedado de la siguiente manera: '
+  Write-Host ''
+  Write-Host '  La categoría "Inicio de sesión de la cuenta" ha quedado de la siguiente manera: '
+  Write-Host ''
   AuditPol /get /category:"Inicio de sesión de la cuenta"
   Write-Host ''
   
