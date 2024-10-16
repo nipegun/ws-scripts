@@ -4,7 +4,8 @@
       # Directivas de auditoría del sistema
         # Inicio de sesión de cuentas (Categoría: "Inicio de sesión de la cuenta")
           AuditPol /set /subcategory:"Validación de credenciales" /success:enable /failure:enable
-
+          Set-AdvancedAuditPolicyConfiguration -Policy "AuditPolicy" -Subcategory "Credential Validation" -Success:$true -Failure:$true
+          Set-AdvancedAuditPolicyConfiguration -Policy "AuditPolicy" -Subcategory "Validación de credenciales" -Success:$true -Failure:$true
         # Administración de cuentas
         # Seguimiento detallado
         # Acceso DS
