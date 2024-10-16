@@ -1,3 +1,7 @@
+
+# Ejecución remota:
+#  Invoke-Expression (Invoke-WebRequest -Uri "https://raw.githubusercontent.com/usuario/repositorio/ruta/al/script.ps1" -UseBasicParsing).Content
+
 # Imprimir estado de todas las categorías
   AuditPol /get /category:*
 # secpol.msc
