@@ -167,4 +167,9 @@
   AuditPol /get /category:"Sistema"
   Write-Host ''
 
-
+  Write-Host '----------------------------------------------------------------------------'
+  Write-Host '  Generando un archivo para poder importar sobre la GPO de modo gráfico...'
+  Write-Host '----------------------------------------------------------------------------'
+  auditpol /backup /file:c:\Users\Administrador\Escritorio\PolParaImportar.txt
+  Write-Host ''
+ 
