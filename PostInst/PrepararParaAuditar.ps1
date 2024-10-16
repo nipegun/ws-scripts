@@ -1,12 +1,22 @@
 
+# Pongo a disposición pública este script bajo el término de "software de dominio público".
+# Puedes hacer lo que quieras con él porque es libre de verdad; no libre con condiciones como las licencias GNU y otras patrañas similares.
+# Si se te llena la boca hablando de libertad entonces hazlo realmente libre.
+# No tienes que aceptar ningún tipo de términos de uso o licencia para utilizarlo o modificarlo porque va sin CopyLeft.
+
+# ----------
+# Script de NiPeGun para establecer las políticas por defecto para auditar el servidor con Splunk
+#
 # Ejecución remota:
 #  Invoke-Expression (Invoke-WebRequest -Uri "https://raw.githubusercontent.com/nipegun/ws-scripts/main/PostInst/PrepararParaAuditar.ps1" -UseBasicParsing).Content
-
+#
 # Al modificar las políticas locales con auditpol se estará cambiando la configuración efectiva en el sistema,
 # pero estos cambios no se reflejarán en la ventana de Directiva de Seguridad Local (secpol.msc).
 # Y, al reiniciar el servidor, las directivas serán sobre-escritas por las que están en la GPO de secpol.msc
 # Por ello, al finalizar de aplicar estas políticas, se guardará un archivo CSV en el escritorio,
 # que será el que habrá que importar sobre la GPO de grupo que se modifica gráficamente con secpol.msc
+#
+# ----------
 
 # Imprimir estado de todas las categorías
   #AuditPol /get /category:*
