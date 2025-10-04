@@ -9,3 +9,6 @@ Invoke-WebRequest -Uri "https://packages.wazuh.com/$vVersWazuh/windows/$vArchivo
 
 # Ejecutar el instalador
 msiexec /i "$env:TEMP\$vArchivoMSI" /q WAZUH_MANAGER=$vWazuhServerIP
+
+# Lanzar el agente
+net start Wazuh
