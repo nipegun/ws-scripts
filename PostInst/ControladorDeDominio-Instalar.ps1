@@ -7,7 +7,7 @@
 # Script de NiPeGun para instalar el controlador de dominio en Windows Server
 #
 # Ejecución remota:
-#   Invoke-WebRequest -Uri "https://raw.githubusercontent.com/nipegun/ws-scripts/main/ControladorDeDominio-Instalar.ps1" -UseBasicParsing | Select-Object -ExpandProperty Content | Set-Content -Path "c:\Windows\Temp\Script.ps1" -Encoding utf8
+#   Invoke-WebRequest -Uri "https://raw.githubusercontent.com/nipegun/ws-scripts/refs/heads/main/PostInst/ControladorDeDominio-Instalar.ps1" -UseBasicParsing | Select-Object -ExpandProperty Content | Set-Content -Path "c:\Windows\Temp\Script.ps1" -Encoding utf8
 #   c:\Windows\Temp\Script.ps1 -FQDN "mi.dominio.com"
 # ----------
 
